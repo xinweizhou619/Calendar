@@ -3,12 +3,12 @@
 #### 获取日历一周索引值
 
 ```
- 	NSCalendar *calendar = [NSCalendar currentCalendar]; // 
+    NSCalendar *calendar = [NSCalendar currentCalendar]; // 
     NSLog(@"FirstWeekday = %ld",calendar.firstWeekday);//默认值 是 1。
     [calendar setFirstWeekday:1]; //  设定日历每周的第一天从星期几开始，比如:如需设定从星期日开始（“开始”意味着日历的第一天（索引为1）对应的是星期天），则value传入1 ，如需设定从星期一开始，则value传入2 ，以此类推。
     
     
-    // 这里只到天day和hour
+    // 这里到天day和hour
     NSDateComponents *comp = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour fromDate:date];
     NSLog(@"date = %@",date); // 2017-05-18 11:27:37 +0000
     NSLog(@"dayComponet = %ld",comp.day);// 打印结果是18
@@ -42,11 +42,12 @@
 
 
 ```
-	NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
     NSLog(@"FirstWeekday = %ld",calendar.firstWeekday);//默认值 是 1。
     [calendar setFirstWeekday:2];
 
     NSLog(@"date = %@",date); // 如果是5月31号21:00到6.1号21点（不包括）
+    // 这里到天day
     NSDateComponents *comp = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:date];
     NSLog(@"dateComponet = %ld",comp.day);// 打印结果是1，component 是6.1
     
